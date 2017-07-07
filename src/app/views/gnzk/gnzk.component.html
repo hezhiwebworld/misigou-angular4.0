@@ -1,0 +1,28 @@
+
+<my-head [title]="'国内折扣'"></my-head>
+<div class="gnzk-content">
+    <div class="wrap">
+        <!--国内折扣-->
+        <div class="lists">
+            <ul class="clear" id="gnzk-box" *ngIf="results">
+               
+                <li *ngFor="let result of results"><a href="#" [attr.productid]= 'result.productId' >
+                     <img src="../../img/haitao.png" alt="">   
+                    <p class="ellipsis">{{ result.productName }}</p>
+                    <p class="ellipsis">{{ result.productPrice }}</p>
+                    <p>{{ result.productFrom }}<span>{{ result.productTime }}</span></p>
+                </a></li>
+                
+            </ul>
+            
+        </div>
+        <!--国内折扣-->
+        <div class="line"></div>
+    </div>
+</div>
+<!--公用头部-->
+<my-foot></my-foot>
+		
+		
+	
+	

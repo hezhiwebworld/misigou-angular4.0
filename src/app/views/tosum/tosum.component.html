@@ -1,0 +1,48 @@
+
+	
+<my-head [title]="'凑单品'"></my-head>			
+<div class="sub-nav sum">
+    <div class="nav-box">
+        <ul>
+            <li class="shop ellipsis" (click)="checkOut()">{{ shopInit }}</li>
+            <li class="area ellipsis" (click)="checkoutArea()">{{ areaInit }}</li>
+            <li>全部价格</li>
+        </ul>
+    </div>
+    <div class="box" id="sum-box1">
+        <ul id="shop-list1" [ngClass]="{ hide: shopshow }"   *ngIf="shopList">
+            <li 
+            *ngFor="let res of shopList.result " 
+            (click)="getshopid(res.shopId , res.shopName )"
+            ><a>{{ res.shopName }}</a></li>
+        </ul>
+        <ul id="shop-list2" [ngClass]="{ hide: areashow }" *ngIf="areaList">
+            <li  
+            *ngFor="let res of areaList.result" 
+            (click)="getareaid(res.areaId , res.areaName )"
+            ><a>{{ res.areaName }}</a></li>
+        </ul>
+        <ul id="shop-list3" class="hide">
+        </ul>
+    </div>
+</div>
+
+<div class="gnzk-content sum">
+    <div class="wrap">
+        <div class="lists">
+            <ul class="clear" id="sum-box" *ngIf="productList">
+               <li *ngFor="let res of productList.result"><a>
+			        <img [src]="res.productImg" />
+                    <p class="ellipsis">{{ res.productName }}</p>
+                    <p>{{ res.productPrice }} <span>去凑单</span></p>
+                </a></li>
+            </ul>
+        </div>
+        <!--国内折扣-->
+        <div class="line"></div>
+    </div>
+</div>
+<my-foot></my-foot>		
+
+
+	

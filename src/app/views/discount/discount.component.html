@@ -1,0 +1,19 @@
+
+<my-head [title]="'优惠券'"></my-head>			
+<div class="discount-content">
+    <div class="wrap">
+        <!--内容页-->
+        <div class="box">
+            <ul class="clear" id="discount-box" *ngIf="results">
+                <li *ngFor="let res of results.result"><a><img src='res.couponImg' /><br /> {{ res.couponTitle }}</a></li>
+            </ul>
+        </div>
+        <!--内容页-->
+    </div>
+</div>
+<my-foot></my-foot>
+			
+			
+		
+	
+	

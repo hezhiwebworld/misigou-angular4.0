@@ -1,0 +1,31 @@
+<my-head [title]="'省钱控'"></my-head>
+<div class="bj-content">
+    <div class="wrap">
+        <div class="items" id="sqk-box" *ngIf="results">
+            <div  *ngFor="let res of results.result"   class="item clear" [attr.productid]='res.productId' >
+                <a  [routerLink]="['/sqkcon' , res.productId ]">
+                    <div class="item-left" [innerHTML]= "res.productImgSm">
+                    </div>
+                    <div class="item-right">
+                        <p>{{ res.productName }}</p>
+                        <span>{{ res.productPinkage }}</span>
+                        <p><span>报价(6)</span><span>评论(1186)</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--分页结构-->
+<div class="page">
+    <ul class="pagination">
+
+    </ul>
+</div>
+<!--分页结构-->
+<my-foot></my-foot>
+		
+		
+	
+	

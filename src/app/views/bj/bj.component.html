@@ -1,0 +1,30 @@
+
+
+<my-head [title]="'比价搜索'"></my-head>
+<div class="serach">
+    <form action="" method="post">
+        <input type="text" name="" id="" value="" placeholder="请输入你想比价的商品"/>
+        <input type="button" value="搜索"/>
+    </form>
+</div>
+<div class="bj-content">
+    <div class="wrap" id="bj">
+       <!--"{{item.titleId}}" -->
+		<div class="item" *ngFor="let item of results" >
+			<h2 (click) ="onClick(item.titleId)" [attr.titleid]='item.titleId'>{{ item.title }}<i class="icon iconfont  icon-xiangxiajiantou"  ></i></h2>
+			<div class="item-box">
+				<ul class="clear" *ngIf="getcategory">
+                    <li *ngFor="let list of getcategory"><a href="">{{ list.category }}</a></li>
+				</ul>
+			</div>
+		</div>
+		
+    </div>
+</div>
+<!--公用头部-->
+<my-foot></my-foot>
+		
+		
+	
+
+	

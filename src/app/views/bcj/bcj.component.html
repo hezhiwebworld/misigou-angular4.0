@@ -1,0 +1,32 @@
+
+<my-head [title]="'白菜价'"></my-head>		
+<div class="list">
+    <div class="sub-nav">
+        <div class="wrap clear" id="bcj-box1" *ngIf="results">
+            <a *ngFor="let res of results.result" ><i>{{ res.title }}</i></a>
+        </div>
+    </div>
+    
+    <div class="wrap">
+        <div class="items" id="bcj-box2"  *ngIf="listresult">
+          
+            <div class="item clear" *ngFor="let list of listresult.result">
+                <div class="item-left" [innerHTML]="list.productImg">
+                </div>
+                <div class="item-right">
+                    <p [innerHTML]="list.productName"></p>
+                    <span ></span>
+                    <div  [innerHTML]="list.productCouponRemain"></div>
+                    <div class="add clear">
+                        <div class="col-1" [innerHTML]="list.productCoupon"></div>
+                        <div class="col-2" [innerHTML]="list.productHref"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<my-foot></my-foot>			
+			
+			
+	

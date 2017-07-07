@@ -1,0 +1,352 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  width: 100%;
+  max-width: 32rem;
+  min-width: 16rem;
+  margin: 0 auto;
+}
+/*公用样式表*/
+.footer .wrap {
+  font-size: 0.6rem;
+  text-align: center;
+}
+.footer .wrap ul {
+  display: flex;
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+}
+.footer .wrap ul li {
+  width: 33.33%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.footer .wrap ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.footer .wrap ul li a:nth-child(1) {
+  border-right: 1px solid #CCCCCC;
+}
+.footer .wrap ul li a:nth-child(2) {
+  border-right: 1px solid #CCCCCC;
+}
+.footer .wrap p {
+  height: 1.5rem;
+}
+.footer .wrap p:nth-child(1) {
+  line-height: 1.5rem;
+}
+.footer .wrap p:nth-child(2) {
+  line-height: 2.5rem;
+}
+/*列表项*/
+h2 {
+  height: 2rem;
+  background-color: #EDEDED;
+  font-size: 0.7rem;
+  line-height: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+}
+h2 i::before {
+  float: right;
+  font-size: 0.8rem;
+  color: #0F0F0F;
+}
+.items {
+  background-color: #fff;
+}
+.items .item {
+  border-bottom: 1px dotted #CCCCCC;
+}
+.items .item .item-left {
+  float: left;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.items .item .item-left img {
+  height: 4rem;
+  width: 4rem;
+}
+.items .item .item-right {
+  overflow: hidden;
+  font-size: 0.6rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
+/*内容项*/
+.content {
+  background-color: #fff;
+}
+.content .wrap {
+  font-size: 0.7rem;
+}
+.content .wrap div {
+  text-align: center;
+}
+.content .wrap div h3 {
+  text-align: center;
+}
+.content .wrap .box .price ul li a {
+  display: block;
+  height: 2rem;
+}
+.content .wrap .box .price ul li a i {
+  display: inline-block;
+  background-color: #0096FF;
+  padding: 0.25rem;
+  font-size: 0.6rem;
+  border-radius: 10px;
+}
+.content .wrap .box .price ul li a em {
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+}
+.box {
+  font-size: 0.7rem;
+}
+.box .sub-nav {
+  display: flex;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+}
+.box .sub-nav a {
+  flex: 1;
+  height: 1.75rem;
+  line-height: 1.75rem;
+}
+.box .sub-nav a:nth-child(1) {
+  border-right: 1px solid #CCCCCC ;
+}
+.box .sub-nav a:nth-child(2) {
+  border-right: 1px solid #CCCCCC ;
+}
+.box .sub-box {
+  width: 100%;
+}
+.box .sub-box .price {
+  width: 100%;
+  background-color: #fff;
+}
+.box .sub-box .price ul {
+  padding: 0.5rem;
+  border-bottom: 1px solid #CCCCCC;
+}
+.box .sub-box .price ul li {
+  width: 100%;
+  text-align: left;
+}
+.box .sub-box .price ul li a {
+  display: inline-block;
+  height: 1rem;
+  width: 100%;
+}
+.box .sub-box .price ul li a span {
+  vertical-align: middle;
+  height: 1rem;
+}
+.box .sub-box .price ul li a span::before {
+  content: '';
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  background: url(../img/slogo.png) no-repeat;
+  vertical-align: middle;
+  font-size: 0;
+}
+.box .sub-box .price .tips {
+  padding: 0.5rem;
+  font-size: 0.5rem;
+  text-align: left;
+  background-color: #fff;
+}
+.box .sub-box .price .tips p {
+  line-height: 0.8rem;
+}
+.box .sub-box .key {
+  text-align: left;
+  background-color: #fff;
+  font-size: 0.5rem;
+  line-height: 1rem;
+  padding: 0.5rem;
+}
+.box .sub-box .comment {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #CCCCCC;
+}
+.box .sub-box .comment h4 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.5rem;
+}
+.box .sub-box .comment h4 i {
+  float: right;
+}
+.box .sub-box .comment p {
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
+.box .sub-box .comment p:nth-child(1) {
+  text-align: right;
+}
+/*分页样式*/
+.page {
+  background-color: #fff;
+  text-align: center;
+}
+.cu-content-pl {
+  background-color: #ffffff;
+}
+.cu-content-pl .hover {
+  background-color: #f8f8f8 !important;
+}
+.cu-content-pl .tit {
+  font-size: 16px;
+  padding: 6px 8px;
+}
+.cu-content-pl .reply {
+  padding: 6px 8px;
+}
+.cu-content-pl .reply .form {
+  border: 2px solid #ECEAE8;
+  border-radius: 2px;
+  padding: 4px 0 0 4px;
+  background-color: #fff;
+  position: relative;
+  width: 98%;
+  margin: 0px auto;
+}
+.cu-content-pl .reply .form textarea {
+  width: 100%;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: none;
+  line-height: 22px;
+  font-size: 14px;
+  outline: 0;
+  color: #666;
+  height: 68px;
+}
+.cu-content-pl .reply .form .ctrl {
+  background-color: #fbfbfb;
+  height: 36px;
+  margin-left: -4px;
+  border-top: solid 1px #f2f2f2;
+}
+.cu-content-pl .reply .form .ctrl button {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  background: #ff841d;
+  border: none;
+  border: 2px solid #ff841d;
+  border-left: none;
+  border-top: none;
+  padding: 0px;
+  width: 100px;
+  height: 39px;
+  color: #fff;
+  outline: 0;
+  border-radius: 0 0 2px 0;
+  font-size: 16px;
+}
+.cu-content-pl .reply .form .ctrl input {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  background: #ff841d;
+  border: none;
+  border: 2px solid #ff841d;
+  border-left: none;
+  border-top: none;
+  padding: 0px;
+  width: 100px;
+  height: 39px;
+  color: #fff;
+  outline: 0;
+  border-radius: 0 0 2px 0;
+  font-size: 16px;
+}
+.cu-content-pl .list ul li {
+  padding: 18px 10px;
+  background-color: #FFFFFF;
+}
+.cu-content-pl .list .userimg {
+  width: 40px;
+  float: left;
+  overflow: hidden;
+}
+.cu-content-pl .list .userimg img {
+  width: 40px;
+  background-position: top;
+  border-radius: 20px;
+  height: 40px;
+}
+.cu-content-pl .list .con {
+  overflow: hidden;
+  padding-left: 10px;
+}
+.cu-content-pl .list .con .name {
+  margin-bottom: 6px;
+}
+.cu-content-pl .list .con .name .username {
+  color: #5997c0;
+  font-size: 13px !important;
+  float: left;
+}
+.cu-content-pl .list .con .name .time {
+  color: #999999;
+  font-size: 13px !important;
+  float: right;
+}
+.cu-content-pl .list .con .yinyong {
+  background-color: #FBFBFB;
+  border: 1px solid #eeeeee;
+  padding: 4px 6px;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+.cu-content-pl .list .con .yinyong .item:first-child {
+  border-top: none;
+}
+.cu-content-pl .list .con .yinyong span {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 13px !important;
+}
+.cu-content-pl .list .con .content {
+  word-break: break-all;
+  font-size: 15px !important;
+  color: #606060;
+  line-height: 20px;
+}
+.cu-content-pl .list .con .content img {
+  vertical-align: middle;
+}
+.cu-content-pl .more {
+  text-align: center;
+  color: #999999;
+  line-height: 70px;
+}
+.cu-content-pl .no-comment {
+  color: #999999;
+  padding: 20px 0px;
+  font-size: 12px;
+}
+.cu-content-pl .no-comment .icon-shafa {
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024' width='40'><path fill='#999999' d='M241.40288 237.26464c4.532224 100.75648-41.708544 138.85952-102.218752 159.377408C102.56384 732.01536 710.279168 727.703296 838.633472 569.2864c30.831616-38.06208 48.279552-107.389952 48.410624-172.644352-60.94336-19.961856-111.186944-53.141504-102.20544-159.377408C784.83968 237.26464 521.464832 373.075712 241.40288 237.26464zM214.244352 197.423872c40.603648 176.791552-137.980928 215.12192-150.649856 73.034752-9.3184-104.409088 44.407808-225.890304 75.314176-278.893568 5.198848-1.634304 10.2656-3.392512 15.622144-4.847616l18.993152 0 0-33.585152c0-15.1552 16.8448-27.460608 37.609472-27.460608 20.779008 0 37.629952 12.306432 37.629952 27.460608l0 33.585152 527.059968 0 0-33.585152c0-15.1552 16.857088-27.460608 37.643264-27.460608 20.793344 0 37.63712 12.306432 37.63712 27.460608l0 33.585152 16.982016 0c6.832128 3.090432 11.961344 8.281088 18.676736 11.495424 32.410624 70.453248 93.861888 188.025856 69.986304 298.821632-16.1024 74.374144-122.523648 89.926656-145.301504 0-10.080256-39.88992 15.753216-63.490048-10.76736-106.256384C800.68096 190.777088 532.547584 350.951168 214.244352 197.423872z' transform='translate(0, 812) scale(1, -1)'/></svg>");
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 40px;
+}
