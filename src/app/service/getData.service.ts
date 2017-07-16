@@ -12,9 +12,8 @@ let params = new URLSearchParams();
 @Injectable()
 export class GetDataService {
       //首页
-      
-
-      private getindexmenuUrl =  baseurl + 'getindexmenu';  
+      private getindexmenuUrl =  baseurl + 'getindexmenu';
+      private getmoneyctrlhomeUrl =  baseurl +  'getmoneyctrl'
      // private getmoneyctrlUrl = baseurl +  'getmoneyctrl';
       //比价
       private getcategorytitleUrl = baseurl + 'getcategorytitle';
@@ -48,6 +47,11 @@ export class GetDataService {
                 .then(response => { return response.json().result as any[] })
                 .catch(this.handleError);
       };
+      getmoneyctrlhome(pageid):Promise<any[]>{
+        return this.http.get(this.getmoneyctrlhomeUrl+'?pageid='+ pageid )
+                .toPromise()
+                .then(response => {return response.json().result as any[] })
+      }
       //比价列表数据
       getcategorytitle(): Promise<any[]> {
         return this.http.get(this.getcategorytitleUrl)

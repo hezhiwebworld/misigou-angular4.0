@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { HomeComponent } from "./views/home/home.component";
+import { HomeListComponent } from "./views/home/home-list.component";
 import { HeadComponent } from "./views/head/head.component";
 import { BjComponent } from "./views/bj/bj.component";
 import { BjListComponent } from "./views/bj/bjlist.component";
@@ -12,6 +13,7 @@ import { SqkconComponent } from "./views/sqk/sqkcon.component";
 import { BcjComponent } from "./views/bcj/bcj.component";
 import { DiscountComponent } from "./views/discount/discount.component";
 import { TosumComponent } from "./views/tosum/tosum.component";
+
 
 const routes: Routes = [
     { path: '' , component: HomeComponent },

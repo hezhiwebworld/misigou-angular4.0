@@ -30,9 +30,9 @@
 <div class="home-hot"> 
     <div class="wrap">
         <h2>超值折扣推荐</h2>
-        <div class="items" id="home-count-box" *ngIf="getmoneyctrl">
+       <div class="items" id="home-count-box" *ngIf="getmoneyctrl">
             <!--列表渲染 -->
-            <div *ngFor="let item of getmoneyctrl.result"  class="item clear" >
+            <div *ngFor="let item of getmoneyctrl"  class="item clear" >
                 <!--[innerHTML]= "item.productImgSm"-->
                 <div class="item-left" >
                     <img src="./../img/ic_kb.png_" />
@@ -43,7 +43,6 @@
                     <p><span>{{ item.productFrom }}</span><i>{{ item.productTime }}</i></p>
                 </div>
             </div>
-          
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { HttpModule }    from '@angular/http';
 //组建
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
+import { HomeListComponent } from "./views/home/home-list.component";
 import { PageComponent } from "./plugins/pagetions/page.component";
 import { FootComponent } from "./views/foot/foot.component";
 import { HeadComponent } from "./views/head/head.component";
@@ -40,7 +41,8 @@ import { ButtonDirective } from './plugins/directive/button.directive';
     DiscountComponent,
     TosumComponent,
     ButtonDirective,
-    SqkconComponent
+    SqkconComponent,
+    HomeListComponent
   ],
   imports: [
     BrowserModule,

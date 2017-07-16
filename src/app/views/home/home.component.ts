@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 
-import { Headers, Http } from '@angular/http';
+import { URLSearchParams,RequestOptionsArgs } from '@angular/http';
 import { ActivatedRoute, Params, Router }   from '@angular/router';
 
 // import 'rxjs/add/operator/toPromise';
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { Result } from "./../../homelogo";
 import { ResultService } from "./result.service";
-
+import { GetDataService } from "../../service/getData.service";
 
 let arr = ['bj','sqk',
 		'gnzk','bcj','sqk',
@@ -26,9 +26,11 @@ let arr = ['bj','sqk',
 export class HomeComponent  implements OnInit{  
   results: any;
   getmoneyctrl: any;
+  pageid = 0;
   clickid;
   constructor(
      private resultService: ResultService,
+     private GetDataService: GetDataService,
      private router: Router
     ) { }
               
@@ -39,10 +41,10 @@ export class HomeComponent  implements OnInit{
         .getindexmenu()
         .then( results => {this.results = results;console.log(this.results)})
    //商品列表
-   this.resultService
-        .getmoneyctrl()
-        .then( results => {this.getmoneyctrl = results;console.log(this.getmoneyctrl)})
-   }
+   this.GetDataService
+            .getmoneyctrlhome(this.pageid)
+            .then( results => {this.getmoneyctrl = results;console.log(this.getmoneyctrl)})
+  }
 
    goOther( item: number ): void{
       console.log( arr[item] )
@@ -53,7 +55,11 @@ export class HomeComponent  implements OnInit{
     On (event:any): void{
         // this.icur = current;
         // this.pageParams.icur = current
-        console.log( event )
+        this.pageid = event
+         this.GetDataService
+            .getmoneyctrlhome(this.pageid)
+            .then( results => {this.getmoneyctrl = results;console.log(this.getmoneyctrl)})
+        console.log(this.pageid)
     }
  }
 

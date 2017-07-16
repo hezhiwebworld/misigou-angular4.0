@@ -23,6 +23,8 @@ export class  PageComponent implements OnInit{
     Tomessage(value: any){
         this.OnChange.emit( value )
         this.icur = value;
+        //这里数据发生改变---在这里重新渲染分页组件
+        this.getPageList(this.icur)
     }
     
     //这个数据应该是一步获得的
@@ -42,21 +44,23 @@ export class  PageComponent implements OnInit{
         .then( results => { this.pageParams = results })
          //分页
          .then( ()=>{
-             this.getPageList();
+             this.getPageList(this.icur);
             
          })
          
     }
+    
     //分页函数
-    getPageList () {
+    getPageList (currenticur) {
         if(!this.pageParams){
             return;
         }
         //console.log(this.pageParams)
         let total = this.pageParams.totalCount;
         let size  = this.pageParams.pagesize;
-        let icur = this.icur;
+        let icur = currenticur;
         let num = Math.ceil( total / size )
+        console.log(icur)
         for ( var i = 0 ; i< num ;i++ ) {
             if(num <= 5){
                 this.pageList.push({
