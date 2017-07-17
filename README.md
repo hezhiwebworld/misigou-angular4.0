@@ -26,3 +26,11 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## 项目中遇到的问题点
+
+1. 兄弟组件之间的通讯问题
+
+2. 当子组建参数发生改变，视图重新渲染的问题
+> 已经解决，以分页组件为实例，当当前页数发生改变的时候,子组件触发相应的函数，在函数里面重新渲染组件的样式

@@ -19,12 +19,15 @@ import { TosumComponent } from "./views/tosum/tosum.component";
 //服务
 import { ResultService } from "./views/home/result.service";
 import { GetDataService } from "./service/getData.service";
+import { ShareDataService } from "./views/home/shareData.service";
 //指令
 //import { TitleIdDirective } from "./views/bj/titleid.directive";
 
 
 import {  AppRoutingModule } from "./app-routing.module";
 import { ButtonDirective } from './plugins/directive/button.directive';
+import { AddnumDirective } from './plugins/addnum.directive';
+import { AddComponent } from './plugins/add/add.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +45,16 @@ import { ButtonDirective } from './plugins/directive/button.directive';
     TosumComponent,
     ButtonDirective,
     SqkconComponent,
-    HomeListComponent
+    HomeListComponent,
+    AddnumDirective,
+    AddComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ResultService,GetDataService],
+  providers: [ResultService,GetDataService,ShareDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { Result } from "./../../homelogo";
 import { ResultService } from "./result.service";
-import { GetDataService } from "../../service/getData.service";
+import { ShareDataService } from "./shareData.service";
 
 let arr = ['bj','sqk',
 		'gnzk','bcj','sqk',
@@ -21,7 +21,8 @@ let arr = ['bj','sqk',
 @Component({
   selector: 'hero-detail',
   templateUrl: './home.component.html',
-  styleUrls: ['./../../css/loyout.css','./../../css/common.css','./home.css']
+  styleUrls: ['./../../css/loyout.css','./../../css/common.css','./home.css'],
+ 
 })
 export class HomeComponent  implements OnInit{  
   results: any;
@@ -30,9 +31,11 @@ export class HomeComponent  implements OnInit{
   clickid;
   constructor(
      private resultService: ResultService,
-     private GetDataService: GetDataService,
+     private shareDataService: ShareDataService,
      private router: Router
-    ) { }
+    ) { 
+       this.shareDataService.add(0)
+    }
               
           //没有返回值
   ngOnInit(): void {
@@ -40,28 +43,15 @@ export class HomeComponent  implements OnInit{
    this.resultService
         .getindexmenu()
         .then( results => {this.results = results;console.log(this.results)})
-   //商品列表
-   this.GetDataService
-            .getmoneyctrlhome(this.pageid)
-            .then( results => {this.getmoneyctrl = results;console.log(this.getmoneyctrl)})
-  }
+       
+   }
 
    goOther( item: number ): void{
       console.log( arr[item] )
       //直接使用这个函数导航比较方便
       this.router.navigate([ ('/' + arr[item]) ])
    }
-   //page 增加
-    On (event:any): void{
-        // this.icur = current;
-        // this.pageParams.icur = current
-        this.pageid = event
-         this.GetDataService
-            .getmoneyctrlhome(this.pageid)
-            .then( results => {this.getmoneyctrl = results;console.log(this.getmoneyctrl)})
-        console.log(this.pageid)
-    }
- }
+}
 
 
 

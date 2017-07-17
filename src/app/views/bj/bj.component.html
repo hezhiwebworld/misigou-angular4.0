@@ -14,7 +14,7 @@
 			<h2 (click) ="onClick(item.titleId)" [attr.titleid]='item.titleId'>{{ item.title }}<i class="icon iconfont  icon-xiangxiajiantou"  ></i></h2>
 			<div class="item-box">
 				<ul class="clear" *ngIf="getcategory">
-                    <li *ngFor="let list of getcategory"><a href="">{{ list.category }}</a></li>
+                    <li *ngFor="let list of getcategory[item.titleId]"><a href="">{{ list.category }}</a></li>
 				</ul>
 			</div>
 		</div>

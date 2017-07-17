@@ -1,2 +1,14 @@
-
-<span>1111</span>
+<div class="items" id="home-count-box" *ngIf="getmoneyctrl">
+    <!--列表渲染 -->
+    <div *ngFor="let item of getmoneyctrl"  class="item clear" >
+        <!--[innerHTML]= "item.productImgSm"-->
+        <div class="item-left" >
+            <img src="./../img/ic_kb.png_" />
+        </div>
+        <div class="item-right">
+            <p class="ellipsis">{{ item.productName }}</p>
+            <p><span>1.28L</span> / <i>{{ item.productPinkage }}</i></p>
+            <p><span>{{ item.productFrom }}</span><i>{{ item.productTime }}</i></p>
+        </div>
+    </div>
+</div>

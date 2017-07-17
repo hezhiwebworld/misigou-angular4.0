@@ -3,6 +3,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 //导入异步的服务
 import { ResultService } from "./../../views/home/result.service";
+import { ShareDataService } from "./../../views/home/shareData.service";
 
 @Component({
     selector : "page",
@@ -11,17 +12,17 @@ import { ResultService } from "./../../views/home/result.service";
                 <ul class="pagination" *ngIf="pageList">
                 <li><a href="#" aria-label="Previous" class="prev"><span aria-hidden="true">&laquo;</span></a></li> 
                 <li *ngFor="let list of pageList"><a href="#">{{ list.pageid }}</a></li>
-                <li (click)="Tomessage( icur+1 )"><a href="#" aria-label="Next" class="next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li (click)="add( icur+1 )"><a href="#" aria-label="Next" class="next"><span aria-hidden="true">&raquo;</span></a></li>
                 </ul>
         </div>
     `,
     styleUrls: ['./page.css']
 })
-export class  PageComponent implements OnInit{
-    @Output() OnChange: EventEmitter<string> = new EventEmitter();
+export class  PageComponent{
+  
     
     Tomessage(value: any){
-        this.OnChange.emit( value )
+      
         this.icur = value;
         //这里数据发生改变---在这里重新渲染分页组件
         this.getPageList(this.icur)
@@ -31,8 +32,11 @@ export class  PageComponent implements OnInit{
     
     
     constructor (
-         private resultService: ResultService
-    ){}
+         private resultService: ResultService,
+         private shareDataService :ShareDataService
+    ){
+        
+    }
     pageList = [];
      icur = 1;    //这里是全局变量
     pageParams ;
@@ -45,7 +49,7 @@ export class  PageComponent implements OnInit{
          //分页
          .then( ()=>{
              this.getPageList(this.icur);
-            
+             this.add(1)
          })
          
     }
@@ -111,6 +115,10 @@ export class  PageComponent implements OnInit{
        
     }
     //点击更改当前值
-
+    add(pageid): void {
+        console.log(pageid)
+        this.icur = pageid
+        this.shareDataService.add( pageid )
+    }
 }
 

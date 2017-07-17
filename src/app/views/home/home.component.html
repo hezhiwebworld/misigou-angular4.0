@@ -30,20 +30,7 @@
 <div class="home-hot"> 
     <div class="wrap">
         <h2>超值折扣推荐</h2>
-       <div class="items" id="home-count-box" *ngIf="getmoneyctrl">
-            <!--列表渲染 -->
-            <div *ngFor="let item of getmoneyctrl"  class="item clear" >
-                <!--[innerHTML]= "item.productImgSm"-->
-                <div class="item-left" >
-                    <img src="./../img/ic_kb.png_" />
-                </div>
-                <div class="item-right">
-                    <p class="ellipsis">{{ item.productName }}</p>
-                    <p><span>1.28L</span> / <i>{{ item.productPinkage }}</i></p>
-                    <p><span>{{ item.productFrom }}</span><i>{{ item.productTime }}</i></p>
-                </div>
-            </div>
-        </div>
+        <home-list></home-list>
     </div>
 </div>
 <!--分页结构-->

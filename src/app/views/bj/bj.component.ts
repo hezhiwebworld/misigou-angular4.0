@@ -12,13 +12,13 @@ import { GetDataService } from "../../service/getData.service";
 export class BjComponent{
     title 
     results: any;
-    getcategory;
+    getcategory = [];
     constructor(
         private getDataService: GetDataService
     ){}
     ngOnInit() : void {
        //var self = this;
-       this.title = "比价搜索";
+      
        this.getDataService
             .getcategorytitle()
             .then( results => {this.results = results})
@@ -28,7 +28,7 @@ export class BjComponent{
         //console.log(event.target.titleid);
       this.getDataService
             .getcategory(titleid)
-            .then( results => { this.getcategory = results;console.log(results) }  )
+            .then( results => { this.getcategory[titleid] = results;console.log(this.getcategory) }  )
     }
 
 }
