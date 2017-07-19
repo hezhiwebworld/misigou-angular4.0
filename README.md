@@ -52,3 +52,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 7. 父子组建之间的通讯问题
 > @input   || @output
+
+8. 竖向选项卡，每个选项对应内容不一样，如何在对应的标题放入对应的内容
+> 通过数组的形式，数组有缩影值，每组数据都id
+
+9. 限制文字的长度
+>{{ name | limitTo : 10 : 1 }} 10 长度为10,从第一位开始截取

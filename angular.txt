@@ -1,0 +1,328 @@
+1---->通过命令行的形势安装，中间需要等待很长时间
+https://angular.cn/docs/ts/latest/cli-quickstart.html
+
+----安装各种包---需要太多时间
+
+ng g c name
+
+2----> Angular CLI项目   ------  各种基础的命令行
+ng-serve
+ng-build
+npm start
+
+压缩启动  ng serve --prod --aot
+
+
+4 事件绑定(click)="onSelect(hero)"
+
+	事件注册 在组件里面注册
+
+5  模版语法--很多有意思的用法
+
+
+
+6 好多坑 ，明明引入了还是一直找不到
+
+
+
+7switchMap  angular 提供获取参数的方法，需要import引入
+
+
+8 数据类型--定义一个类型-----string 只能不能加引号
+
+class Gundam {
+  name: string;
+  type: string;
+}
+
+
+9 PS，有关绑定：  ==========这是一个很神奇的技巧
+
+Angular的绑定很有意思，有双向的也有单向的，有在class里声明一个变量在template里使用的，也有在template里暴露一个class里的变量给外界赋值的。目前我见到的是如下三种写法（指在view里）： 
+1）{{变量名}}，单项绑定，class中的值会显示到view里。 
+2）[变量名]，单项绑定，一般后面还会跟个“=”，用来给class里的变量或者属性赋值。 
+3）*ngModel=[(变量名)]，双向绑定。有关双向绑定其实我还是有点不理解，官方文档上也只是在表单处理时应用。大体上说双向绑定就是绑定值后在页面修改值可以影响class内的值，而class内的值改变后view的值也会改变。 
+比如可以双向绑定一个input，初始化的时候从服务端读取一个值放进去，同时这个值是可以修改的。修改完毕class里的值也变了，可以直接提交而不用多写拿value的步骤。
+
+
+10  angular  里面的rooter 决定显示那个路由
+
+	而router-outlet  决定显示在哪里
+
+
+
+11 注册一个服务最基本的步骤是
+1---基本结构
+
+import { Injectable } from '@angular/core';
+@Injectable()
+export class GundamService{
+}
+
+
+12  使用一个服务
+
+在使用之前必须 在总模版里面注册供应商 providers: [GundamService];
+
+
+1---先到用  ---导入
+import
+
+2 ---  使用构造器 ，注入服务
+constructor(private gundamService: GundamService){}
+
+
+13 自定义类的数据的，更改了类的属性，如果报错，重新编译
+
+
+15 路由的注意点
+
+     路由决定  什么时候显示，<router-outlet></router-outlet>在哪里显示
+
+16 angular 数据绑定有四种形式
+
+	插值绑定 {{ title }}  
+
+	属性绑定  [class] = "active"
+	
+		
+
+	事件绑定 （chick） = "any()"
+
+	
+	唯一的双向数据绑定
+		[（ngModel）] = ""
+
+
+17 $event 对象的属性取决与 DOM事件的类型，
+
+所有的标准dom事件对象都有一个target属性，
+
+	引用触发该事件的元素，在本例当中，target 是<input>y元素  ;    event.target.value，返回该元素的当前内容
+
+  
+
+18 angular 4.0   将字符串转化成html
+    [innerHTML]="rss.description"
+
+
+19  静态文件的路径   例如像什么图片之类的放在
+
+	assets  文件夹下面
+
+
+20: promise 对象需要一个返回值；当回调函数只有一条语句，并且每加 {} 的时候，默认会有一个返回值，
+
+
+21 给angular 添加 元素的缩影值
+<li *ngFor="let item of items; let i = index;">{{ i }}</li>
+
+
+
+22  类的首字母必须大写，定义组件的时候
+
+
+*ngFor  与ngForof
+
+可以仔细研究一下两者的区别---这个可以便利数组  Array<number>   ----typescript  可以用于类型判断
+
+ <li template="ngFor let item of items; index as i;"><a href="#">{{ i }}</a></li>
+
+
+<ng-template ngFor let-item [ngForOf]="items" let-i="index">
+//                         <li><a href="#">{{ i }}</a></li>
+//                     </ng-template>
+               
+
+
+23 分页的坑爹之处---在钩子外面定义一个函数，然后再钩子你面调用，，调用需要this  为什么呢，
+
+所有的变量和方法 都属于组建this。
+
+ngOnInit(){
+        this.getPageList()
+    }
+    getPageList () {
+        let num = Math.floor(this.pageParams.pagetotal / this.pageParams.pagesize)
+        for ( var i = 0 ; i< num ;i++ ) {
+            this.pageList.push({
+                pageid  : i+1
+            })
+        }
+        console.log(1)
+    }
+
+24 自定义指令的使用
+	注意点  需要在 根模版的decalration 中声明
+需要从核心模块中引入Directive, ElementRef, Input
+
+在angular重添加自定义属性   ----------------自定义指令 和自定义属性是有区别的
+
+[attr.titleid]='item.titleId'
+
+注册点击事件
+
+
+25 ----------------------------------------------------------------------------------------------
+
+组建 如何共享一个title
+
+分页如何处理-----
+
+二级菜单----如何处理
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+26----组建名字必须大写
+
+
+27 ------字符串的正确输入姿势
+
+[title]="'haoren'"
+
+
+28 父组件 向子组建通讯
+
+将父组件的 属性赋值  给子组建
+
+   <son [title]="'name'"></son>
+
+子组建的---title  是需要动态的  需要根据父组建不同而不同
+
+
+还可以在元数据中添加
+
+@Component({
+	inputs: ['content']
+})
+
+class son {
+
+	content
+}
+还可以用冒号 分割----麻烦就不写了，推荐第一种写法
+
+
+29  通过脚手架的命令行自动生成的class -----自动注入依赖
+
+
+30 给指令的宿主元素添加属性和事件@HostBinding  使用之前需要先导入
+
+@HostBinding('style.font-size') fontSize = '20px';   
+
+
+31 动画
+
+	* 会自动计算元素的高度
+
+
+动画的两种状态   *=>void     ||    void => *    从有到无，从无到有
+
+
+32 angular4。0    参数的数据格式是 RequestOptionsArgs
+
+案例
+	
+	let urlSearchParams = new URLSearchParams();
+            urlSearchParams.set('shopid', '1');
+            urlSearchParams.set('areaid', '1');
+            let options:RequestOptionsArgs = {
+                search: urlSearchParams
+             };
+
+
+
+33 操作导航栏的 参数 的内置服务
+
+   ActivatedRoute  ---先注入服务进来
+
+
+34 angular 用户输入延迟  利用的是一个观察者对象Observable<string> 的类型的对象
+
+<input type= "text" [ formControl ] = "term" >
+
+formControl 是一个指令，term 是模块的实力
+
+该实例有一个属性 valueChanges  是一个观察者对象
+
+可以使用观察者对象的下面的方法debounceTime  设置延时
+
+
+35 安全导航操作符（？。） 和空属性路径
+
+{{ obj?.name }} 当obj为空的时候，保护视图渲染器，让它免于失败
+
+
+36 注解 ---- Annotation   实际上是装饰器的同义词
+
+
+37 属性型指令
+	指令的一种，可以监听或者修改其他html元素  特性（attribute） 属性（property） 组件的行为。 通常用作html属性
+
+	ngclass
+38 封装通 -----  指的是app。module。ts这个模块 ，怎么说呢，所有在这个模块中导入的东西，
+在其他组件中都可以使用，不想vue每次导入还需要声明，值得是哪个在vue实例的components下声明
+
+39 绑定 ---完全可以理解成数据绑定
+	
+40 一般只能应用在表单元素中  [(ng-model)]  ,在agular中如果想拿到文本框值
+
+
+41 自定义html标签 来关联自定义指令<my-directive></my-directive>
+
+
+42 指令分三类
+	组件 ---component)
+	属性 ---attribute directive  ---ngClass ngStyle
+	结构型指令 ---structural directive --- 作用  负责重塑html 布局
+
+43  注入器
+
+	angular	
+44  输入属性 input  数据值会从模板   表达式等号右侧   的数据源流入这个属性
+
+45  输出属性作为事件绑定的目标，事件流从这个属性流出 到模版表达式等号的右边的接受者
+
+
+
+45 可观察者对象
+	一个observable   Reactive Extensions (RxJS) 需要使用这个第三方包
+
+46 接口是可选的，这个没必要一定要选，官方文档上市推荐写的
+
+
+
+47  Angular 2 DI系统中 函数forwardRef 的作用 ---di 依赖输入注入
+
+https://github.com/kittencup/angular2-ama-cn/issues/11
+
+组件写入的顺序无法保证--- 使用这个可以保证
+
+
+
+
+48===================================================
+问题是：1. 兄弟组件之间如何通讯
+
+2. 当数据发生改变的时候，如何重新渲染试图
+
+
+========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
